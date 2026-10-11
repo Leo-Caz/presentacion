@@ -183,7 +183,7 @@ function About() {
         <aside className="profile-card" aria-label="Información personal">
           <div className="avatar">
             <img
-              src="/images/perfil.jpg"
+              src={`${import.meta.env.BASE_URL}images/perfil.jpg`}
               alt="Fotografía de Leandro D. Castro"
               className="avatar-image"
             />
