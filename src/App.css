@@ -699,3 +699,113 @@ h1 {
     justify-content: center;
   }
 }
+
+
+/* Sobre mí · habilidades */
+.skills-section {
+  scroll-margin-top: 28px;
+}
+
+.skills-card {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.skills-block {
+  padding: 22px 20px 10px;
+}
+
+.skills-block h3 {
+  margin: 0 0 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.soft-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(36px, 8vw, 120px);
+  row-gap: 28px;
+  padding: 0 10px 20px;
+}
+
+.soft-skill-item {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.skill-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  color: var(--text);
+}
+
+.skills-card-divider {
+  height: 1px;
+  margin: 0 12px;
+  background: var(--border);
+}
+
+.technical-skills-block {
+  padding-bottom: 12px;
+}
+
+.technical-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.technical-skill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.technical-skill:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .skills-block {
+    padding: 20px 16px 10px;
+  }
+
+  .soft-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-inline: 4px;
+  }
+
+  .technical-skills {
+    gap: 8px;
+  }
+
+  .technical-skill {
+    min-height: 34px;
+    padding-inline: 10px;
+    font-size: 0.78rem;
+  }
+}

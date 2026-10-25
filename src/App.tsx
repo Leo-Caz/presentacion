@@ -47,6 +47,30 @@ const featuredProjects = [
   },
 ]
 
+
+
+const softSkills = [
+  { name: 'Trabajo en equipo', icon: 'team' },
+  { name: 'Pensamiento crítico', icon: 'critical' },
+  { name: 'Resolución de problemas', icon: 'problem' },
+  { name: 'Adaptabilidad', icon: 'adaptability' },
+  { name: 'Aprendizaje continuo', icon: 'learning' },
+  { name: 'Responsabilidad', icon: 'responsibility' },
+] as const
+
+const technicalSkills = [
+  'Java',
+  'Python',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'HTML',
+  'CSS',
+  'SQL',
+  'Git',
+  'GitHub',
+]
+
 const quotes = [
   {
     text: 'Lo importante es no dejar de hacerse preguntas. La curiosidad tiene su propia razón de existir.',
@@ -239,9 +263,104 @@ function About() {
           ))}
         </div>
       </section>
+
+      <div className="section-divider" />
+
+      <section className="subsection skills-section">
+        <div className="section-heading">
+          <span>02</span>
+          <h2>Habilidades</h2>
+        </div>
+
+        <div className="skills-card">
+          <div className="skills-block">
+            <h3>Habilidades blandas</h3>
+            <div className="soft-skills-grid">
+              {softSkills.map((skill) => (
+                <div className="soft-skill-item" key={skill.name}>
+                  <SoftSkillIcon type={skill.icon} />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="skills-card-divider" />
+
+          <div className="skills-block technical-skills-block">
+            <h3>Habilidades técnicas</h3>
+            <div className="technical-skills" aria-label="Habilidades técnicas">
+              {technicalSkills.map((skill) => (
+                <span className="technical-skill" key={skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   )
 }
+
+function SoftSkillIcon({ type }: { type: (typeof softSkills)[number]['icon'] }) {
+  if (type === 'team') {
+    return (
+      <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9" r="2.4" />
+        <path d="M3.8 18c.5-3.1 2.5-5 5.2-5s4.8 1.9 5.3 5" />
+        <path d="M14.4 13.8c2.8-.7 5.2.9 5.8 3.7" />
+      </svg>
+    )
+  }
+
+  if (type === 'critical') {
+    return (
+      <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 5a3 3 0 0 0-3 3v1.3A3 3 0 0 0 4 12a3 3 0 0 0 2 2.8V16a3 3 0 0 0 3 3" />
+        <path d="M15 5a3 3 0 0 1 3 3v1.3A3 3 0 0 1 20 12a3 3 0 0 1-2 2.8V16a3 3 0 0 1-3 3" />
+        <path d="M12 5v14" />
+      </svg>
+    )
+  }
+
+  if (type === 'problem') {
+    return (
+      <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9.5 4.5a2.5 2.5 0 0 1 5 0v1h1a2.5 2.5 0 0 1 0 5h-1v1h1a2.5 2.5 0 0 1 0 5h-1v1a2.5 2.5 0 0 1-5 0v-1h-1a2.5 2.5 0 0 1 0-5h1v-1h-1a2.5 2.5 0 0 1 0-5h1z" />
+      </svg>
+    )
+  }
+
+  if (type === 'adaptability') {
+    return (
+      <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M19 7v4h-4" />
+        <path d="M5 17v-4h4" />
+        <path d="M7.1 9A6 6 0 0 1 18 8.2L19 11" />
+        <path d="M16.9 15A6 6 0 0 1 6 15.8L5 13" />
+      </svg>
+    )
+  }
+
+  if (type === 'learning') {
+    return (
+      <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 5.5c3-1 5.7-.6 8 1.2v12c-2.3-1.8-5-2.2-8-1.2z" />
+        <path d="M20 5.5c-3-1-5.7-.6-8 1.2v12c2.3-1.8 5-2.2 8-1.2z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg className="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+      <path d="m8.8 12 2.1 2.1 4.6-4.6" />
+    </svg>
+  )
+}
+
 function Repositories() {
   return (
     <section className="page-section">
